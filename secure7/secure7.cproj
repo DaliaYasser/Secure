@@ -81,6 +81,14 @@
             <Value>DEBUG</Value>
           </ListValues>
         </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../1.0 MCAL/Header Files</Value>
+            <Value>../2.0 ECUAL/Header Files</Value>
+            <Value>../3.0 APPLICATION/Header Files</Value>
+            <Value>../Utility</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
         <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
         <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
         <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
@@ -96,22 +104,28 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="2.0 CUAL\Header Files\Finger_Print_Module.h">
+    <Compile Include="1.0 MCAL\Header Files\UART.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="2.0 CUAL\Header Files\Keypad_Module.c">
+    <Compile Include="1.0 MCAL\Source Files\UART.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="2.0 CUAL\Header Files\LCD_4_Module.h">
+    <Compile Include="2.0 ECUAL\Header Files\Finger_Print_Module.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="2.0 CUAL\Source Files\Finger_Print_Module.c">
+    <Compile Include="2.0 ECUAL\Header Files\Keypad_Module.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="2.0 CUAL\Source Files\Keypad_Module.c">
+    <Compile Include="2.0 ECUAL\Header Files\LCD_4_Module.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="2.0 CUAL\Source Files\LCD_4_Module.c">
+    <Compile Include="2.0 ECUAL\Source Files\Finger_Print_Module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="2.0 ECUAL\Source Files\Keypad_Module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="2.0 ECUAL\Source Files\LCD_4_Module.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="1.0 MCAL\Header Files\DIO_ATMEGA.h">
@@ -136,10 +150,10 @@
   <ItemGroup>
     <Folder Include="3.0 APPLICATION\Header Files" />
     <Folder Include="3.0 APPLICATION\Source Files" />
-    <Folder Include="2.0 CUAL\Header Files" />
-    <Folder Include="2.0 CUAL\Source Files" />
+    <Folder Include="2.0 ECUAL\Header Files" />
+    <Folder Include="2.0 ECUAL\Source Files" />
     <Folder Include="1.0 MCAL" />
-    <Folder Include="2.0 CUAL" />
+    <Folder Include="2.0 ECUAL" />
     <Folder Include="3.0 APPLICATION" />
     <Folder Include="1.0 MCAL\Header Files" />
     <Folder Include="1.0 MCAL\Source Files" />

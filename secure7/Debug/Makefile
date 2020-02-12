@@ -35,10 +35,10 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../3.0\ APPLICATION/Header\ Files \
 ../3.0\ APPLICATION/Source\ Files \
-../2.0\ CUAL/Header\ Files \
-../2.0\ CUAL/Source\ Files \
+../2.0\ ECUAL/Header\ Files \
+../2.0\ ECUAL/Source\ Files \
 ../1.0\ MCAL \
-../2.0\ CUAL \
+../2.0\ ECUAL \
 ../3.0\ APPLICATION \
 ../1.0\ MCAL/Header\ Files \
 ../1.0\ MCAL/Source\ Files \
@@ -47,10 +47,11 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../2.0\ CUAL/Header\ Files/Keypad_Module.c \
-../2.0\ CUAL/Source\ Files/Finger_Print_Module.c \
-../2.0\ CUAL/Source\ Files/Keypad_Module.c \
-../2.0\ CUAL/Source\ Files/LCD_4_Module.c \
+../1.0\ MCAL/Source\ Files/UART.c \
+../2.0\ ECUAL/Header\ Files/Keypad_Module.c \
+../2.0\ ECUAL/Source\ Files/Finger_Print_Module.c \
+../2.0\ ECUAL/Source\ Files/Keypad_Module.c \
+../2.0\ ECUAL/Source\ Files/LCD_4_Module.c \
 ../1.0\ MCAL/Source\ Files/DIO_ATMEGA.c \
 ../3.0\ APPLICATION/Source\ Files/main.c
 
@@ -62,34 +63,38 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-2.0\ CUAL/Header\ Files/Keypad_Module.o \
-2.0\ CUAL/Source\ Files/Finger_Print_Module.o \
-2.0\ CUAL/Source\ Files/Keypad_Module.o \
-2.0\ CUAL/Source\ Files/LCD_4_Module.o \
+1.0\ MCAL/Source\ Files/UART.o \
+2.0\ ECUAL/Header\ Files/Keypad_Module.o \
+2.0\ ECUAL/Source\ Files/Finger_Print_Module.o \
+2.0\ ECUAL/Source\ Files/Keypad_Module.o \
+2.0\ ECUAL/Source\ Files/LCD_4_Module.o \
 1.0\ MCAL/Source\ Files/DIO_ATMEGA.o \
 3.0\ APPLICATION/Source\ Files/main.o
 
 OBJS_AS_ARGS +=  \
-"2.0 CUAL/Header Files/Keypad_Module.o" \
-"2.0 CUAL/Source Files/Finger_Print_Module.o" \
-"2.0 CUAL/Source Files/Keypad_Module.o" \
-"2.0 CUAL/Source Files/LCD_4_Module.o" \
+"1.0 MCAL/Source Files/UART.o" \
+"2.0 ECUAL/Header Files/Keypad_Module.o" \
+"2.0 ECUAL/Source Files/Finger_Print_Module.o" \
+"2.0 ECUAL/Source Files/Keypad_Module.o" \
+"2.0 ECUAL/Source Files/LCD_4_Module.o" \
 "1.0 MCAL/Source Files/DIO_ATMEGA.o" \
 "3.0 APPLICATION/Source Files/main.o"
 
 C_DEPS +=  \
-2.0\ CUAL/Header\ Files/Keypad_Module.d \
-2.0\ CUAL/Source\ Files/Finger_Print_Module.d \
-2.0\ CUAL/Source\ Files/Keypad_Module.d \
-2.0\ CUAL/Source\ Files/LCD_4_Module.d \
+1.0\ MCAL/Source\ Files/UART.d \
+2.0\ ECUAL/Header\ Files/Keypad_Module.d \
+2.0\ ECUAL/Source\ Files/Finger_Print_Module.d \
+2.0\ ECUAL/Source\ Files/Keypad_Module.d \
+2.0\ ECUAL/Source\ Files/LCD_4_Module.d \
 1.0\ MCAL/Source\ Files/DIO_ATMEGA.d \
 3.0\ APPLICATION/Source\ Files/main.d
 
 C_DEPS_AS_ARGS +=  \
-"2.0 CUAL/Header Files/Keypad_Module.d" \
-"2.0 CUAL/Source Files/Finger_Print_Module.d" \
-"2.0 CUAL/Source Files/Keypad_Module.d" \
-"2.0 CUAL/Source Files/LCD_4_Module.d" \
+"1.0 MCAL/Source Files/UART.d" \
+"2.0 ECUAL/Header Files/Keypad_Module.d" \
+"2.0 ECUAL/Source Files/Finger_Print_Module.d" \
+"2.0 ECUAL/Source Files/Keypad_Module.d" \
+"2.0 ECUAL/Source Files/LCD_4_Module.d" \
 "1.0 MCAL/Source Files/DIO_ATMEGA.d" \
 "3.0 APPLICATION/Source Files/main.d"
 
@@ -107,74 +112,81 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-2.0\ CUAL/Header\ Files/Keypad_Module.o: ../2.0\ CUAL/Header\ Files/Keypad_Module.c
+1.0\ MCAL/Source\ Files/UART.o: ../1.0\ MCAL/Source\ Files/UART.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-2.0\ CUAL/Source\ Files/Finger_Print_Module.o: ../2.0\ CUAL/Source\ Files/Finger_Print_Module.c
+2.0\ ECUAL/Header\ Files/Keypad_Module.o: ../2.0\ ECUAL/Header\ Files/Keypad_Module.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-2.0\ CUAL/Source\ Files/Keypad_Module.o: ../2.0\ CUAL/Source\ Files/Keypad_Module.c
+2.0\ ECUAL/Source\ Files/Finger_Print_Module.o: ../2.0\ ECUAL/Source\ Files/Finger_Print_Module.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-2.0\ CUAL/Source\ Files/LCD_4_Module.o: ../2.0\ CUAL/Source\ Files/LCD_4_Module.c
+2.0\ ECUAL/Source\ Files/Keypad_Module.o: ../2.0\ ECUAL/Source\ Files/Keypad_Module.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+2.0\ ECUAL/Source\ Files/LCD_4_Module.o: ../2.0\ ECUAL/Source\ Files/LCD_4_Module.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 1.0\ MCAL/Source\ Files/DIO_ATMEGA.o: ../1.0\ MCAL/Source\ Files/DIO_ATMEGA.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 3.0\ APPLICATION/Source\ Files/main.o: ../3.0\ APPLICATION/Source\ Files/main.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-
-2.0\ CUAL/Header\ Files/%.o: ../2.0\ CUAL/Header\ Files/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-2.0\ CUAL/Source\ Files/%.o: ../2.0\ CUAL/Source\ Files/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
 
 1.0\ MCAL/Source\ Files/%.o: ../1.0\ MCAL/Source\ Files/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+2.0\ ECUAL/Header\ Files/%.o: ../2.0\ ECUAL/Header\ Files/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+2.0\ ECUAL/Source\ Files/%.o: ../2.0\ ECUAL/Source\ Files/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 3.0\ APPLICATION/Source\ Files/%.o: ../3.0\ APPLICATION/Source\ Files/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../1.0 MCAL/Header Files" -I"../2.0 ECUAL/Header Files" -I"../3.0 APPLICATION/Header Files" -I"../Utility"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

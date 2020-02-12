@@ -7,30 +7,48 @@ Discarded input sections
 
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
- .text          0x00000000        0x0 2.0 CUAL/Header Files/Keypad_Module.o
- .data          0x00000000        0x0 2.0 CUAL/Header Files/Keypad_Module.o
- .bss           0x00000000        0x0 2.0 CUAL/Header Files/Keypad_Module.o
- .debug_line    0x00000000        0x0 2.0 CUAL/Header Files/Keypad_Module.o
- .debug_str     0x00000000        0x0 2.0 CUAL/Header Files/Keypad_Module.o
- .comment       0x00000000       0x31 2.0 CUAL/Header Files/Keypad_Module.o
- .text          0x00000000        0x0 2.0 CUAL/Source Files/Finger_Print_Module.o
- .data          0x00000000        0x0 2.0 CUAL/Source Files/Finger_Print_Module.o
- .bss           0x00000000        0x0 2.0 CUAL/Source Files/Finger_Print_Module.o
- .debug_line    0x00000000        0x0 2.0 CUAL/Source Files/Finger_Print_Module.o
- .debug_str     0x00000000        0x0 2.0 CUAL/Source Files/Finger_Print_Module.o
- .comment       0x00000000       0x31 2.0 CUAL/Source Files/Finger_Print_Module.o
- .text          0x00000000        0x0 2.0 CUAL/Source Files/Keypad_Module.o
- .data          0x00000000        0x0 2.0 CUAL/Source Files/Keypad_Module.o
- .bss           0x00000000        0x0 2.0 CUAL/Source Files/Keypad_Module.o
- .debug_line    0x00000000        0x0 2.0 CUAL/Source Files/Keypad_Module.o
- .debug_str     0x00000000        0x0 2.0 CUAL/Source Files/Keypad_Module.o
- .comment       0x00000000       0x31 2.0 CUAL/Source Files/Keypad_Module.o
- .text          0x00000000        0x0 2.0 CUAL/Source Files/LCD_4_Module.o
- .data          0x00000000        0x0 2.0 CUAL/Source Files/LCD_4_Module.o
- .bss           0x00000000        0x0 2.0 CUAL/Source Files/LCD_4_Module.o
- .debug_line    0x00000000        0x0 2.0 CUAL/Source Files/LCD_4_Module.o
- .debug_str     0x00000000        0x0 2.0 CUAL/Source Files/LCD_4_Module.o
- .comment       0x00000000       0x31 2.0 CUAL/Source Files/LCD_4_Module.o
+ .text          0x00000000        0x0 1.0 MCAL/Source Files/UART.o
+ .data          0x00000000        0x0 1.0 MCAL/Source Files/UART.o
+ .bss           0x00000000        0x0 1.0 MCAL/Source Files/UART.o
+ .text.UART_init
+                0x00000000       0x14 1.0 MCAL/Source Files/UART.o
+ .text.UART_sendByte
+                0x00000000        0x8 1.0 MCAL/Source Files/UART.o
+ .text.UART_ReadByte
+                0x00000000        0x8 1.0 MCAL/Source Files/UART.o
+ .debug_info    0x00000000       0xe3 1.0 MCAL/Source Files/UART.o
+ .debug_abbrev  0x00000000       0x90 1.0 MCAL/Source Files/UART.o
+ .debug_aranges
+                0x00000000       0x30 1.0 MCAL/Source Files/UART.o
+ .debug_ranges  0x00000000       0x20 1.0 MCAL/Source Files/UART.o
+ .debug_line    0x00000000       0x93 1.0 MCAL/Source Files/UART.o
+ .debug_str     0x00000000      0x1a6 1.0 MCAL/Source Files/UART.o
+ .comment       0x00000000       0x31 1.0 MCAL/Source Files/UART.o
+ .debug_frame   0x00000000       0x44 1.0 MCAL/Source Files/UART.o
+ .text          0x00000000        0x0 2.0 ECUAL/Header Files/Keypad_Module.o
+ .data          0x00000000        0x0 2.0 ECUAL/Header Files/Keypad_Module.o
+ .bss           0x00000000        0x0 2.0 ECUAL/Header Files/Keypad_Module.o
+ .debug_line    0x00000000        0x0 2.0 ECUAL/Header Files/Keypad_Module.o
+ .debug_str     0x00000000        0x0 2.0 ECUAL/Header Files/Keypad_Module.o
+ .comment       0x00000000       0x31 2.0 ECUAL/Header Files/Keypad_Module.o
+ .text          0x00000000        0x0 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .data          0x00000000        0x0 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .bss           0x00000000        0x0 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .debug_line    0x00000000        0x0 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .debug_str     0x00000000        0x0 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .comment       0x00000000       0x31 2.0 ECUAL/Source Files/Finger_Print_Module.o
+ .text          0x00000000        0x0 2.0 ECUAL/Source Files/Keypad_Module.o
+ .data          0x00000000        0x0 2.0 ECUAL/Source Files/Keypad_Module.o
+ .bss           0x00000000        0x0 2.0 ECUAL/Source Files/Keypad_Module.o
+ .debug_line    0x00000000        0x0 2.0 ECUAL/Source Files/Keypad_Module.o
+ .debug_str     0x00000000        0x0 2.0 ECUAL/Source Files/Keypad_Module.o
+ .comment       0x00000000       0x31 2.0 ECUAL/Source Files/Keypad_Module.o
+ .text          0x00000000        0x0 2.0 ECUAL/Source Files/LCD_4_Module.o
+ .data          0x00000000        0x0 2.0 ECUAL/Source Files/LCD_4_Module.o
+ .bss           0x00000000        0x0 2.0 ECUAL/Source Files/LCD_4_Module.o
+ .debug_line    0x00000000        0x0 2.0 ECUAL/Source Files/LCD_4_Module.o
+ .debug_str     0x00000000        0x0 2.0 ECUAL/Source Files/LCD_4_Module.o
+ .comment       0x00000000       0x31 2.0 ECUAL/Source Files/LCD_4_Module.o
  .text          0x00000000        0x0 1.0 MCAL/Source Files/DIO_ATMEGA.o
  .data          0x00000000        0x0 1.0 MCAL/Source Files/DIO_ATMEGA.o
  .bss           0x00000000        0x0 1.0 MCAL/Source Files/DIO_ATMEGA.o
@@ -72,10 +90,11 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
-LOAD 2.0 CUAL/Header Files/Keypad_Module.o
-LOAD 2.0 CUAL/Source Files/Finger_Print_Module.o
-LOAD 2.0 CUAL/Source Files/Keypad_Module.o
-LOAD 2.0 CUAL/Source Files/LCD_4_Module.o
+LOAD 1.0 MCAL/Source Files/UART.o
+LOAD 2.0 ECUAL/Header Files/Keypad_Module.o
+LOAD 2.0 ECUAL/Source Files/Finger_Print_Module.o
+LOAD 2.0 ECUAL/Source Files/Keypad_Module.o
+LOAD 2.0 ECUAL/Source Files/LCD_4_Module.o
 LOAD 1.0 MCAL/Source Files/DIO_ATMEGA.o
 LOAD 3.0 APPLICATION/Source Files/main.o
 START GROUP
@@ -390,10 +409,10 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 3.0 APPLICATION/Source Files/main.o
 
-.debug_str      0x00000000      0x13c
+.debug_str      0x00000000      0x125
  *(.debug_str)
- .debug_str     0x00000000      0x13c 3.0 APPLICATION/Source Files/main.o
-                                0x170 (size before relaxing)
+ .debug_str     0x00000000      0x125 3.0 APPLICATION/Source Files/main.o
+                                0x159 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)

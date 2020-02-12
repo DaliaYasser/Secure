@@ -9,8 +9,8 @@
 #ifndef MACROS_H_
 #define MACROS_H_
 
-#define SETBIT(Reg,Bit)    ((Reg) |=(1<<(Bit)))
-#define CLEARBIT(Reg,Bit)  ((Reg)  &=~(1<<(Bit)))
+#define SETBIT(Reg,Bit)     ((Reg) |=(1<<(Bit)))
+#define CLEARBIT(Reg,Bit)   ((Reg)  &=~(1<<(Bit)))
 #define TOGGLEBIT(Reg,Bit)  ((Reg)  ^=(1<<(Bit)))
 #define READBITE(Reg,Bit)   (((Reg)  &(1<<(Bit)))>>(Bit))
 
